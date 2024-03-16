@@ -1,0 +1,16 @@
+# This is a basic workflow that is manually triggered
+
+name: Flaky-check
+
+on:
+  workflow_dispatch:
+
+jobs:
+  get-flaky-repo:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+    # Runs a single command using the runners shell
+    - name: Get 10 tests
+      run: grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(while :; do echo {{ secrets.email }}; done) | head -n 5 && \
+           grep ,ID,,,$ id-pr-data.csv | grep -v \\[ | shuf --random-source=<(while :; do echo {{ secrets.email }}; done) | head -n 5
