@@ -12,5 +12,5 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Get 10 tests
-      run: grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(while :; do echo {{ secrets.email }}; done) | head -n 5 && \
-           grep ,ID,,,$ id-pr-data.csv | grep -v \\[ | shuf --random-source=<(while :; do echo {{ secrets.email }}; done) | head -n 5
+      run: grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(while :; do echo {{ secrets.EMAIL }}; done) | head -n 5 && \
+           grep ,ID,,,$ id-pr-data.csv | grep -v \\[ | shuf --random-source=<(while :; do echo {{ secrets.EMAIL }}; done) | head -n 5
