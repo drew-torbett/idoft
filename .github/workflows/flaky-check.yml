@@ -9,7 +9,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Create emails.txt file
-      run: printf '{{ secrets.EMAIL }}\n%.0s' {1..100} > emails.txt
+      run: printf 'dtorbett@gmu.edu\n%.0s' {1..100} > emails.txt
 
     - name: Test file
       run: head emails.txt
