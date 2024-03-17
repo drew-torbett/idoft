@@ -11,6 +11,9 @@ jobs:
     - name: Create emails.txt file
       run: printf '${{ secrets.EMAIL }}\n%.0s' {1..100} > emails.txt
 
+    - name: Test
+      run: head -n 5 emails.txt
+
     - name: Get 5 old tests
       id: pr-output
       run: grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(cat emails.txt) --head-count=5 > repo.txt
