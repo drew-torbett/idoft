@@ -16,7 +16,5 @@ jobs:
 
     - name: Get 5 old tests
       id: pr-output
-      run: echo "PR_OUTPUT=$(grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(cat emails.txt) | head -n 5" >> $GITHUB_ENV
-    
-    - name: Test
-      run: echo $PR_OUTPUT
+      run: grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(cat emails.txt) | head -n 5
+  
