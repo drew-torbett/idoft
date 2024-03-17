@@ -13,7 +13,7 @@ jobs:
 
     - name: Get 5 old tests
       id: pr-output
-      run: grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(cat emails.txt) --head-count=2 | grep jdereg > repo.txt
+      run: grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(cat emails.txt) --head-count=5 > repo.txt
 
     - name: Upload repo artifact for other jobs to use
       uses: actions/upload-artifact@v2
