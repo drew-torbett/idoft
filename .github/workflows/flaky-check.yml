@@ -17,8 +17,11 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: jdereg/json-io
+
+    - name: Test without Nondex
+      run: mvn test -Dtest=CollectionTests
         
-    - name: Test with Maven
+    - name: Test with Nondex
       run: mvn edu.illinois:nondex-maven-plugin:2.1.7:nondex -Dtest=CollectionTests
   
 
