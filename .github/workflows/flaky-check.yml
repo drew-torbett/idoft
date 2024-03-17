@@ -19,7 +19,7 @@ jobs:
         repository: jdereg/json-io
         
     - name: Test with Maven
-      run: mvn test -Dtest=CollectionTests
+      run: mvn edu.illinois:nondex-maven-plugin:2.1.7:nondex -Dtest=CollectionTests
   
 
     
