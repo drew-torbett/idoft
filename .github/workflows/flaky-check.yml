@@ -12,6 +12,9 @@ jobs:
       id: pr-output
       run: echo "PR_OUTPUT=$(grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(while :; do echo ${{ secrets.EMAIL }}; done) --head-count=5)" >> $GITHUB_ENV
 
+    - name: Test
+      run: echo $PR_OUTPUT
+
     
 
   
