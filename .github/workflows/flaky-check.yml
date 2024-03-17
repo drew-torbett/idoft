@@ -8,13 +8,13 @@ jobs:
     - name: Checkout idoft repo
       uses: actions/checkout@v2
 
-    - name: Create emails.txt file
-      run: printf 'dtorbett@gmu.edu\n%.0s' {1..100} > emails.txt
-
-    - name: Test file
-      run: head emails.txt
-
     - name: Get 5 old tests
       id: pr-output
-      run: grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(cat emails.txt) --head-count=5
+      run: echo "PR_OUTPUT=$(grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(while :; do echo ${{ secrets.EMAIL }}; done) --head-count=5)" >> $GITHUB_ENV
+
+    
+
+  
+
+    
   
