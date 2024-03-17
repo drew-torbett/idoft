@@ -23,10 +23,24 @@ jobs:
       with:
         name: repo artifacts
         path: repo.txt
-      
 
+  test-json-io:
+    runs-on: ubuntu-latest
     
+    steps:
+    - name: Clone json-io
+      uses: actions/checkout@v2
+      with:
+        repository: drew-torbett/json-io
 
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+      
+    - name: Build with Maven
+      run: mvn test nondex:nondex -Dtest=CollectionTests
+    
   
 
     
