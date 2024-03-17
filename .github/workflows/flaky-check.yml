@@ -5,29 +5,6 @@ jobs:
   get-flaky-test-repo:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout idoft repo
-      uses: actions/checkout@v2
-
-    - name: Create emails.txt file
-      run: printf '${{ secrets.EMAIL }}\n%.0s' {1..100} > emails.txt
-
-    - name: Test
-      run: head -n 5 emails.txt
-
-    - name: Get 5 old tests
-      id: pr-output
-      run: grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(cat emails.txt) --head-count=5 > repo.txt
-
-    - name: Upload repo artifact for other jobs to use
-      uses: actions/upload-artifact@v2
-      with:
-        name: repo artifacts
-        path: repo.txt
-
-  test-json-io:
-    runs-on: ubuntu-latest
-    
-    steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 11 for x64
       uses: actions/setup-java@v3
@@ -35,15 +12,14 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         architecture: x64
-    
+        
     - name: Clone json-io
       uses: actions/checkout@v2
       with:
-        repository: drew-torbett/json-io
-      
+        repository: jdereg/json-io
+        
     - name: Build with Maven
       run: mvn test nondex:nondex -Dtest=CollectionTests
-    
   
 
     
