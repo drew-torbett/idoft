@@ -2,7 +2,7 @@ name: Flaky-check
 on:
   workflow_dispatch:
 jobs:
-  flaky-test-with-nondex:
+  flaky-test-without-nondex:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -19,7 +19,7 @@ jobs:
         repository: jdereg/json-io
         
     - name: Test with Maven
-      run: mvn edu.illinois:nondex-maven-plugin:2.1.7:nondex -Dtest=CollectionTests
+      run: mvn test -Dtest=CollectionTests
   
 
     
