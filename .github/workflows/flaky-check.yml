@@ -16,5 +16,5 @@ jobs:
 
     - name: Get 5 old tests
       id: pr-output
-      run: grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(cat emails.txt) -buffer-size=1000000 | head -n 5
+      run: grep ,ID,,,$ pr-data.csv | grep -v \\[ | shuf --random-source=<(cat emails.txt) --buffer-size=1000000 | head -n 5
   
