@@ -2,7 +2,7 @@ name: Flaky-check
 on:
   workflow_dispatch:
 jobs:
-  get-flaky-test-repo:
+  flaky-test-with-nondex:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
